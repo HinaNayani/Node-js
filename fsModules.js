@@ -34,3 +34,17 @@ fs.renameSync('./app3.js', './temp/practice.js');
 
 //Renaming Directory
 // fs.renameSync('./temp', './App');
+
+//deleting files and folders
+const fs = require("fs");
+const fileName = ['app1.js' , 'app2.js'];
+fs.readdirSync("./deleteFolder").forEach(function(fileName) {
+	fs.unlinkSync("./deleteFolder/" + fileName);
+});
+
+fs.rmdir("./deleteFolder", function(err) {
+	if (err) {
+		console.log("err");
+	}
+	console.log("files and folder removed")
+});
